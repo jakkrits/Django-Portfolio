@@ -22,7 +22,11 @@ from graphene_django.views import GraphQLView
 from django.conf import settings
 from django.conf.urls.static import static
 
+# import views
+import jobs.views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('graphql/', csrf_exempt(GraphQLView.as_view(graphiql=True)))
+    path('graphql/', csrf_exempt(GraphQLView.as_view(graphiql=True))),
+    path('', jobs.views.home, name='home')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
