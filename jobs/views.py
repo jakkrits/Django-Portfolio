@@ -1,5 +1,8 @@
 from django.shortcuts import render
+from .models import Job
 
 
 def home(request):
-    return render(request, 'jobs/home.html')
+    jobs = Job.objects.all()
+    context = {'jobs': jobs}
+    return render(request, 'jobs/home.html', context=context)

@@ -1,0 +1,26 @@
+{% extends 'blog/blog.html' %}
+{% block detail %}
+    <title>{{ blog.title }}</title>
+    
+    
+    <div class="row">
+  <div class="col-3">
+      <img src={{ blog.image.url }} style="width: 100%">
+  </div>
+  <div class="col-9">
+      <div class="card text-center">
+        <div class="card-header">
+            <p>Post</p>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">{{ blog.title }}</h5>
+            <p class="card-text">{{ blog.body }}</p>
+            <a href={% url 'blog' %} class="btn btn-warning">Back</a>
+        </div>
+        <div class="card-footer text-muted">
+            <p class="text-muted">published: {{ blog.pub_date }}</p>
+        </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
